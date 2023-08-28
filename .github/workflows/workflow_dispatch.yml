@@ -1,0 +1,19 @@
+name: workflow_dispatch_verification
+
+on:
+  workflow_dispatch:
+    inputs:
+      in_value:
+        # https://github.blog/changelog/2021-11-10-github-actions-input-types-for-manual-workflows/
+        type: choice
+        options:
+          - choice1
+          - choice2
+jobs:
+  verify_choice:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          # https://docs.github.com/ja/actions/learn-github-actions/contexts#github-context
+          echo "User: ${{ github.actor }}"
+          echo "Input Value: ${{ github.event.inputs.in_value }}"
