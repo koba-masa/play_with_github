@@ -1,0 +1,25 @@
+name: pr_to_specified_branch_creation
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  pull_request_creation:
+    runs-on: ubuntu-latest
+    
+    env:
+        GH_TOKEN: ${{ secrets.TOKEN }}
+        TARGET_BRANCH: topic/pr_creation_by_github_actions
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Create PullRequest
+        run: |
+          gh pr create \
+            -B ${{ env.TARGET_BRANCH }} \
+            -t "Merge main branch to ${{ env.TARGET_BRANCH }}" \
+            -a ${{ github.actor }}  \
+            -b ""
