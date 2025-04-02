@@ -1,0 +1,13 @@
+name: workflow_dispatch_minimum_settings
+
+on:
+  workflow_dispatch:
+
+jobs:
+  verify_minimum_settings:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          # https://docs.github.com/ja/actions/learn-github-actions/contexts#github-context
+          echo "User: ${{ github.actor }}"
+          echo "Branch Name: ${{ github.ref_name }}"
