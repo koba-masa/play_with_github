@@ -13,7 +13,9 @@ jobs:
   verify_choice:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Output GitHub context
+        run: |
           # https://docs.github.com/ja/actions/learn-github-actions/contexts#github-context
           echo "User: ${{ github.actor }}"
+          echo "Selected branch: ${{ github.ref_name }}"
           echo "Input Value: ${{ github.event.inputs.in_value }}"
