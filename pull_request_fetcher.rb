@@ -114,13 +114,13 @@ class PullRequestFetcher
   def export_csv(items, output)
     CSV.open(output, "w", headers: true) do |csv|
       csv << %w[
-        repository_name
-        pr_url
-        status
-        created_at
-        opened_at
-        closed_at
-        conversation_count
+        REPOSITORY
+        URL
+        STATUS
+        CREATED_AT
+        OPENED_AT
+        CLOSED_AT
+        CONVERSATION_COUNT
       ]
 
       items.each.with_index(1) do |item, idx|
