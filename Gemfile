@@ -3,6 +3,8 @@
 source 'https://rubygems.org'
 
 gem "octokit"
+gem "csv"
+gem "dotenv"
 
 group :development, :test do
   gem 'rspec', require: false
