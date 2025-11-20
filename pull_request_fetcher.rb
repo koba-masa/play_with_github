@@ -121,6 +121,7 @@ class PullRequestFetcher
         OPENED_AT
         CLOSED_AT
         CONVERSATION_COUNT
+        TITLE
       ]
 
       items.each.with_index(1) do |item, idx|
@@ -134,7 +135,8 @@ class PullRequestFetcher
           format_jst(pr.created_at), # created_at (JST, YYYY/MM/DD)
           format_jst(pr.created_at), # opened_at (同じく created_at を OPEN 日とみなす)
           format_jst(pr.closed_at),  # closed_at
-          pr.comments.to_i + pr.review_comments.to_i
+          pr.comments.to_i + pr.review_comments.to_i,
+          pr.title,
         ]
 
         puts "Processed (#{idx}/#{items.size}): #{pr.html_url}"
