@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker_files/Ruby.Dockerfile
+    environment:
+      APP_ENV: development
+      SLEEP_TIME: 2
+      TZ: 'Asia/Tokyo'
+    volumes:
+      - .:/app
+      - app_bundle:/usr/local/bundle
+
+volumes:
+  app_bundle:
+    external: false
