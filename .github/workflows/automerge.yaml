@@ -1,0 +1,25 @@
+name: AutoMerge
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: AutoMerge
+        uses: pascalgn/automerge-action@v0.13.0
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MERGE_LABELS: automerge
+          MERGE_METHOD: merge
+          MERGE_DELETE_BRANCH: true
+          MERGE_COMMIT_MESSAGE: 'Auto-merged by GitHub Actions'
+          MERGE_AUTHOR_NAME: 'GitHub Actions'
+          MERGE_AUTHOR_EMAIL: '
+
