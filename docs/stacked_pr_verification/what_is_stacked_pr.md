@@ -89,7 +89,7 @@ gitGraph
   commit id: 'commit H'
 ```
 
-- 下位のPRをマージすると、その上位PRの向き先がベースブランチに変わる
+- その上位PRの向き先がベースブランチに変わる
    ![rebase second branch](/docs/stacked_pr_verification/images/rebase_second_branch.png)
 - 一連の上位のPRをrebaseしてくれる
    ![rebase third branch](/docs/stacked_pr_verification/images/rebase_third_branch.png)

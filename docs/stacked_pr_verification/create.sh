@@ -36,6 +36,7 @@ function commit() {
   echo "${branch}: ${commit_message}" >> ${file_path}
   git add -f ${file_path}
   git commit -m "[STACKED PR VERIFICATION][PATTERN: ${pattern}] ${branch}: ${commit_message} ${commit_message_suffix}"
+  git commit -m "[STACKED PR VERIFICATION] ${branch}: ${commit_message} ${commit_message_suffix}"
   git push origin ${branch}
 }
 
@@ -74,7 +75,7 @@ cd ${WORK_DIR}/${REPOSITORY_NAME}
 mkdir -p ${FILE_DIR}
 git checkout ${trunk_branch}
 
-pattern=1
+pattern=2
 
 if [ "${trunk_branch}" != "main" ]; then
   commit "${pattern}" "${trunk_branch}" "commit A" "${number_of_attempts}" "001"
